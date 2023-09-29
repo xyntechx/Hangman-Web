@@ -14,3 +14,26 @@
     padding: 0 5px;
     font-size: 1.5rem;
 }
+
+.letters {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.button {
+    color: #213547;
+}
+
+.button:disabled {
+    color: #ffffff;
+    background-color: #213547;
+}
