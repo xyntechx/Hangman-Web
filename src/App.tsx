@@ -4,8 +4,8 @@ import "./App.css";
 function App() {
     const WORD = import.meta.env.VITE_WORD; // load word from .env.local
     const [hiddenWord, setHiddenWord] = useState<string[]>([]);
-    // const [livesLeft, setLivesLeft] = useState(7); // standard hangman rules (if there even is any :p)
-    // const [isGameOver, setIsGameOver] = useState(false); // true when livesLeft === 0
+    const [livesLeft, setLivesLeft] = useState(7); // standard hangman rules (if there even is any :p)
+    const [isGameOver, setIsGameOver] = useState(false); // true when livesLeft === 0
 
     useEffect(() => {
         const blanks: string[] = [];
@@ -19,10 +19,14 @@ function App() {
         setHiddenWord(blanks);
     }, []);
 
+    useEffect(() => {
+        if (livesLeft === 0) setIsGameOver(true);
+    }, [livesLeft]);
+
     return (
         <main className="main">
             <h1>Hangman</h1>
-            {/* <p>Lives left: {livesLeft}</p> */}
+            <p>Lives left: {livesLeft}</p>
             <p>
                 {hiddenWord.map((char) => (
                     <span className="blanks">{char}</span>
