@@ -97,6 +97,11 @@ function App() {
             ) : (
                 <p className="blanks">{WORD}</p>
             )}
+            <img
+                src={`./hangman${livesLeft}.svg`}
+                alt={`Hangman Stage ${7 - livesLeft}`}
+                width={200}
+            />
             <div className="letters">
                 {LETTERS.map((letter) => (
                     <button
